@@ -2,15 +2,11 @@
 
 // 初始化
 require_once('./lib/init.php');
-// 断章扫描对象
-require_once('./app/find.php');
+// 应用类库
+require_once('./app/mv.class.php');
 
-if(isset($argv[1])){
-	$last_number = $argv[1];
-}else{
-	$last_number = 'unlimit';
-}
+$mv = new mv();
 
-$find = new find();
+$res = $mv->getArticle('https://www.cnblogs.com/xuweiqiang/p/10724797.html');
 
-$find->start($last_number);
+print_r($res);
